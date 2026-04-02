@@ -70,6 +70,7 @@ impl UserContext {
             fn enter_user(uctx: &mut UserContext);
         }
 
+        riscv::asm::fence_i();
         crate::asm::disable_irqs();
         unsafe { enter_user(self) };
 
